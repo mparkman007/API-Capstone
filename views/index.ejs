@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+
+
+<body id="landing-page">
+<div id ="landing-page-search" class="container my-5" style="margin-top: 13rem !important">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Dossier Informant</h1>
+        <p class="lead">Quickly search and compile loads of relavent information regarding any stock with a single search of the stock's symbol. Dossier Informant is your one stop for a glance at a stock to determine if it fits into your portfolio.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search by symbol" aria-label="Search" name="symbolRequest">
+            <button class="btn btn-outline-success" type="submit" formaction="/submit" formmethod="POST">Search</button>
+          </form>
+          
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="./images/virtual-stocks.jpg" alt="" width="720">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
