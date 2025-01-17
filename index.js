@@ -25,7 +25,6 @@ app.listen(port, () => {
     console.log(`Server running on port ${port}`);
   });
 
-  app.use(express.static("public"));
 
   app.get("/", async (req, res) => {
     res.render("index.ejs");
@@ -33,6 +32,7 @@ app.listen(port, () => {
   });
 
   app.post("/submit", async (req,res) =>{
+    try{
     let reqSymbol = req.body.symbolRequest;
     const result = await axios.get(API_URL + reqSymbol + "?" + "apikey=" + API_KEY);
     let reqExchange = result.data[0].exchangeShortName;
@@ -40,6 +40,10 @@ app.listen(port, () => {
     console.log(result.data[0].exchangeShortName);
 
     res.render("profile.ejs", {content: JSON.stringify(result.data), newUrl: "/?tvwidgetsymbol="+ reqExchange + ":" + reqSymbol.toUpperCase()});
+    }catch(error){
+      res.render("error.ejs");
+    }
+
 
   });
 
